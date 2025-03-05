@@ -18,29 +18,33 @@
 dataset: https://www.kaggle.com/datasets/farzadnekouei/gold-price-10-years-20132023/
 
 **Import necessary libraries:** 
-import pandas as pd
-import numpy as np
+		import pandas as pd
+		import numpy as np
 
 
 **Load the dataset into a Pandas DataFrame: **
-df = pd.read_csv('your_dataset.csv')  # Replace 'your_dataset.csv' with the actual filename
+		df = pd.read_csv('your_dataset.csv')  # Replace 'your_dataset.csv' with the actual filename
 
 **Explore the data:** 
-df.head()
-df.info()
-df.describe()
+		df.head()
+		df.info()
+		df.describe()
 
 **Clean the data**: This might involve handling missing values, converting data types, and removing irrelevant columns.
 **Feature engineering:** Create new features that might improve the model's performance. For example, you could calculate moving averages or other technical indicators.
 
-1**.Day of the week**: Create a new feature representing the day of the week (Monday, Tuesday, etc.). Gold prices might exhibit weekly patterns due to market activity. 
+1**.Day of the week**: Create a new feature representing the day of the week (Monday, Tuesday, etc.). Gold prices might exhibit weekly patterns due to market activity.
+
 		df['DayOfWeek'] = pd.to_datetime(df['Date']).dt.dayofweek
 
 **Month:** Create a feature for the month. Seasonality could influence gold prices. 
+
 		df['Month'] = pd.to_datetime(df['Date']).dt.month
 
 **Week of the year**: Extract the week number to capture potential yearly trends.
-		df['WeekOfYear'] = pd.to_datetime(df['Date']).dt.isocalendar().week
+		
+  		df['WeekOfYear'] = pd.to_datetime(df['Date']).dt.isocalendar().week
+    
 Holidays: If you have data spanning multiple years, you could create a binary feature indicating whether a particular date is a holiday. Holiday periods might have different price dynamics.
 
 **2. Lagged Features:**
@@ -59,20 +63,22 @@ Purpose: Divide your dataset into training and testing sets to evaluate the perf
 
 		from sklearn.model_selection import train_test_split
     		X = df,drop(“Price”,aaxis=1) 
-   		 y = df['Price'] 
-   		 X_train, X_test, y_train, y_test = train_test_split(X, y, t
+   		y = df['Price'] 
+   		X_train, X_test, y_train, y_test = train_test_split(X, y, t
 
 test_size=0.2`: This allocates 20% of the data for testing and 80% for training. You can adjust this as needed.
 `random_state=42`: This ensures reproducibility of the split.
 
 **Create and train the model:**
 **LINEAR REGRESSION MODEL**
- 		from sklearn.linear_model import LinearRegression  
+ 		
+   		from sklearn.linear_model import LinearRegression  
  		model = LinearRegression()
  		model.fit(X_train, y_train)
 
 **Model Evaluation**
 Make predictions on the test set:
+
 		y_pred = model.predict(X_test)
 
 Evaluate the model's performance using appropriate metrics:
