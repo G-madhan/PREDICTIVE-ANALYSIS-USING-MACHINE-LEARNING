@@ -12,7 +12,8 @@
 
 *MENTOR*: NEELA SANTHOSH
 
-Predictive analysis is essentially the practice of using data, statistical algorithms, and machine learning techniques to identify the likelihood of future outcomes based on historical data.In simpler terms, it's about using past information to try and figure out what might happen next.
+
+**Predictive analysis** is essentially the practice of using data, statistical algorithms, and machine learning techniques to identify the likelihood of future outcomes based on historical data.In simpler terms, it's about using past information to try and figure out what might happen next.
 
 dataset: https://www.kaggle.com/datasets/farzadnekouei/gold-price-10-years-20132023/
 
@@ -65,6 +66,7 @@ test_size=0.2`: This allocates 20% of the data for testing and 80% for training.
 `random_state=42`: This ensures reproducibility of the split.
 
 **Create and train the model:**
+**LINEAR REGRESSION MODEL**
  		from sklearn.linear_model import LinearRegression  
  		model = LinearRegression()
  		model.fit(X_train, y_train)
