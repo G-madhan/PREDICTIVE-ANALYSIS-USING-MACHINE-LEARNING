@@ -92,23 +92,23 @@ Evaluate the model's performance using appropriate metrics:
 **Prediction on New Data**
 Once you're satisfied with the model's performance, use it to predict future gold prices:
 		
-new_date = pd.to_datetime('2022-12-31')
-open=1821
-new_data = pd.DataFrame({
-    'DayOfWeek': [new_date.dayofweek],
-    'Month': [new_date.month],
-    'WeekOfYear': [new_date.isocalendar().week],
-    'Open': [open]
+		new_date = pd.to_datetime('2022-12-31')
+		open=1821
+		new_data = pd.DataFrame({
+    				'DayOfWeek': [new_date.dayofweek],
+    				'Month': [new_date.month],
+    				'WeekOfYear': [new_date.isocalendar().week],
+				'Open': [open]
+		})
 
-})
-
-predicted_price = model.predict(new_data)
-print("Predicted Price:",np.round(predicted_price[0],2))
+		predicted_price = model.predict(new_data)
+		print("Predicted Price:",np.round(predicted_price[0],2))
 
 **SAMPLE DATASET**
 ![sample gold price data](https://github.com/user-attachments/assets/0c156099-543a-4711-b212-d1d6c4bac0c2)
 
 **SAMPLE OUTPUT**
+
 ![SAMPLE OUTPUT](https://github.com/user-attachments/assets/f05fed32-3ad2-401c-844e-1154baa13f4f)
 
 
